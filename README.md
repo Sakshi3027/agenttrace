@@ -1,6 +1,6 @@
 # AgentTrace — LLM Agent Observability Framework
 
-🚀 **Live Demo:** (coming soon — deploying to HF Spaces)
+🚀 **Live Demo:** https://huggingface.co/spaces/Sakshi3027/agenttrace
 
 > Companies deploy LLM agents and they break silently. No evals, no monitoring, no alerts. AgentTrace is the observability layer that fixes that.
 
