@@ -10,9 +10,11 @@ import json
 from datetime import datetime
 from tracer.trace_db import save_eval, get_steps_for_run
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
-GROQ_MODEL = "llama-3.3-70b-versatile"
+GROQ_MODEL = "openai/gpt-oss-120b"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 # ─── EVAL CRITERIA PER STEP ───────────────────────────────────────────────────
@@ -68,7 +70,8 @@ def call_groq_eval(system_prompt: str, output_to_eval: str) -> dict:
             {"role": "user", "content": f"Evaluate this output:\n\n{output_to_eval}"},
         ],
         "temperature": 0.0,
-        "max_tokens": 200,
+        "max_tokens": 1000,
+        "reasoning_effort": "low",
     }
 
     try:

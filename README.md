@@ -1,3 +1,13 @@
+---
+title: AgentTrace
+emoji: 🔭
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 8501
+pinned: false
+---
+
 # AgentTrace — LLM Agent Observability Framework
 
 🚀 **Live Demo:** https://huggingface.co/spaces/Sakshi3027/agenttrace

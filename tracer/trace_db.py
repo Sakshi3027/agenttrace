@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 
 DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "traces.db")
+SEED_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "seed", "seed.sql")
 os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 
 def get_connection():
@@ -118,4 +119,13 @@ def get_recent_eval_scores(step_name, limit=20):
     conn.close()
     return df
 
+def seed_if_new():
+    if os.path.exists(DB_PATH) or not os.path.exists(SEED_PATH):
+        return
+    conn = get_connection()
+    with open(SEED_PATH) as f:
+        conn.executescript(f.read())
+    conn.close()
+
+seed_if_new()
 init_db()
